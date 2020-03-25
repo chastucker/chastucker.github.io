@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+}
+
+.main-header {
+    text-align: center;
+    background-color: darkred;
+    padding: 1%;
+    color: white;
+}
+
+.main-navbar ul{
+    text-align: center;
+    list-style: none;
+    text-decoration: none;
+    margin: 10px;
+
+}
+.main-navbar li {
+    display: inline;
+    padding: 2%;
+    margin: 10px;
+    text-decoration: none;
+    
+}
+
+.main-navbar a {
+    text-decoration: none;
+    color: black;
+}
+
+.main-navbar a:hover {
+    color: red;
+}
+
+.main-navbar a:visited {
+    color: rgb(88, 88, 88);
+}
+
+.version-number {
+    font-size: small;
+    margin: 1% 0;
+    text-align: center center;
+
+}
+
+.version-number p {
+    
+}
+
+
+.main-body div{
+    margin: 5% 0;
+}
+
+.main-body-home  h3{
+    padding: 2%;
+    text-align: center;
+}
