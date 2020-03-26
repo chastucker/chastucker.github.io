@@ -33,9 +33,6 @@
     color: red;
 }
 
-.main-navbar a:visited {
-    color: rgb(88, 88, 88);
-}
 
 .version-number {
     font-size: small;
