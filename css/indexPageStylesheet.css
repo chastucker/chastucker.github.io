@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 2%;
+    margin-top: 3%;
+}
+
+.main-navbar {
+    text-align: center;
+}
+
+.main-navbar a {
+    margin: 2%;
+}
+
+.clear {
+    margin: 5%;
+}
+
+.main-body-home {
+    text-align: center;
+}
+
+.main-body-home h2 {
+    padding-bottom: 2%;
+}
+
+.main-body-home p {
+    padding: 0 10%;
+}
+
+.cs {
+    padding: 3% 2%;
+    /* text-align: center; */
+}
+
+.cs h2 {
+    text-align: center;
+}
+
+.cs h3 {
+    padding: 1%;
+}
+
+.cs h4 {
+    padding: .5%;
+}
+
+.cs-school {
+    text-align: center;
+}
+
+.cs-school ul {
+    text-align: left;
+    display: inline-block;
+    list-style-type: none;
+    margin: 1% auto;
+    padding: 0;
+}
+
+.cs-professional {
+    text-align: center;
+}
+
+.cs-professional ul {
+    text-align: left;
+    text-align: left;
+}
+
+.cs-professional tr {
+    border: 1px solid black;
+}
+
+.cs-professional td {
+    padding: 0 5%;
+}
+
+.cs-professional table {
+    border-spacing: 30px;
+}
+
+.givegab {
+    margin: 3% 0;
+}
