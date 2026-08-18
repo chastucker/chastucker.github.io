@@ -1,0 +1,23 @@
+---
+interface Props {
+  id: string;
+  index: string;
+  title: string;
+}
+
+const { id, index, title } = Astro.props;
+---
+
+<section id={id} class="scroll-mt-20 border-t border-rule py-14 md:py-20">
+  <div class="grid gap-6 md:grid-cols-[7rem_1fr] md:gap-10">
+    <!-- Mono rail: section number and name. Sticks alongside on wide screens. -->
+    <h2 class="label flex items-baseline gap-3 md:sticky md:top-20 md:flex-col md:gap-1.5 md:self-start">
+      <span aria-hidden="true" class="text-accent">{index}</span>
+      <span>{title}</span>
+    </h2>
+
+    <div class="min-w-0">
+      <slot />
+    </div>
+  </div>
+</section>
