@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------
+   Quiet and utilitarian.
+
+   One neutral grotesque (IBM Plex Sans) carries everything; the mono
+   handles small metadata. No display face, no texture, no scroll
+   animation. The restraint is the point — the page should read like
+   something well made rather than something styled.
+----------------------------------------------------------------- */
+:root {
+  --paper: #fbfaf8;
+  --surface: #f3f1ec;
+  --ink: #1a1a18;
+  --muted: #6f6e69;
+  --rule: #e2dfd8;
+  --accent: #9c2a21;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #121211;
+    --surface: #1a1a18;
+    --ink: #eceae4;
+    --muted: #94928b;
+    --rule: #2b2a27;
+    --accent: #d9695d;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-synthesis-weight: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Small uppercase mono metadata — section numbers, labels, dates. */
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 450;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Body copy sits at a comfortable reading measure everywhere. */
+.prose-measure {
+  max-width: 62ch;
+}
+
+/* Links inside running text: underlined by default, accent on hover.
+   Underline offset keeps descenders clear. */
+.link {
+  text-decoration: underline;
+  text-decoration-color: var(--rule);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}

@@ -1,0 +1,230 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import {
+  site,
+  contact,
+  intro,
+  roles,
+  projects,
+  wrestling,
+  interests,
+  llc,
+  skills,
+  education,
+  nav,
+} from '../data/content';
+
+const year = new Date().getFullYear();
+---
+
+<Base>
+  <header class="sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur-sm">
+    <div class="mx-auto flex max-w-3xl items-center justify-between px-6 py-3.5">
+      <a href="#top" class="label !text-ink transition-colors hover:!text-accent">
+        {site.name}
+      </a>
+
+      <!-- Five links plus the name don't fit on a narrow phone, so below `sm`
+           this collapses to the one that matters. -->
+      <nav aria-label="Sections">
+        <ul class="hidden items-center gap-5 sm:flex">
+          {
+            nav.map((item) => (
+              <li>
+                <a href={item.href} class="label transition-colors hover:!text-accent">
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <a href="#contact" class="label transition-colors hover:!text-accent sm:hidden">
+          Contact
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="mx-auto max-w-3xl px-6">
+    <!-- ── Intro ─────────────────────────────────────────────── -->
+    <section id="top" class="py-16 md:py-24">
+      <h1 class="text-[clamp(1.75rem,4.5vw,2.375rem)] font-medium tracking-[-0.02em]">
+        {site.name}
+      </h1>
+      <p class="label mt-3">{site.role} · {site.location}</p>
+
+      <div class="prose-measure mt-8 space-y-4 text-[1.0625rem] leading-[1.65] text-ink/90">
+        {intro.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      <ul class="mt-8 flex flex-wrap gap-x-5 gap-y-2">
+        <li><a href={`mailto:${contact.email}`} class="label link !text-ink">Email</a></li>
+        <li><a href={contact.github} rel="me noopener" class="label link !text-ink">GitHub</a></li>
+        <li><a href={contact.linkedin} rel="me noopener" class="label link !text-ink">LinkedIn</a></li>
+      </ul>
+    </section>
+
+    <!-- ── Work ──────────────────────────────────────────────── -->
+    <Section id="work" index="01" title="Work">
+      <ol class="space-y-12">
+        {
+          roles.map((role) => (
+            <li>
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+                <h3 class="text-lg font-medium">
+                  {role.href ? (
+                    <a href={role.href} rel="noopener" class="link">
+                      {role.company}
+                    </a>
+                  ) : (
+                    role.company
+                  )}
+                </h3>
+                <p class="label whitespace-nowrap">
+                  {role.start}–{role.end}
+                </p>
+              </div>
+
+              <p class="mt-1 text-sm text-muted">
+                {role.title} · {role.location}
+              </p>
+
+              {role.context && (
+                <p class="prose-measure mt-4 text-[0.9375rem] leading-relaxed text-muted">
+                  {role.context}
+                </p>
+              )}
+
+              <div class="prose-measure mt-4 space-y-3.5 leading-[1.65] text-ink/90">
+                {role.body.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+              </div>
+
+              <p class="label mt-4 !normal-case !tracking-normal">{role.stack.join(', ')}</p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <div class="mt-12 border-t border-rule pt-8">
+        <dl class="space-y-2.5">
+          {
+            skills.map((group) => (
+              <div class="grid gap-0.5 sm:grid-cols-[6rem_1fr] sm:gap-5">
+                <dt class="label pt-1">{group.group}</dt>
+                <dd class="text-[0.9375rem] text-ink/90">{group.items}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+
+      <div class="mt-8 border-t border-rule pt-8">
+        <div class="flex flex-wrap items-baseline justify-between gap-x-4">
+          <h3 class="text-lg font-medium">{education.school}</h3>
+          <p class="label">{education.year}</p>
+        </div>
+        <p class="mt-1 text-[0.9375rem] text-ink/90">{education.degree}</p>
+        <p class="mt-1 text-sm text-muted">{education.note}</p>
+      </div>
+    </Section>
+
+    <!-- ── Projects ──────────────────────────────────────────── -->
+    <Section id="projects" index="02" title="Projects">
+      <ul class="space-y-9">
+        {
+          projects.map((project) => (
+            <li>
+              <div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-0.5">
+                <h3 class="font-mono text-base font-medium">
+                  {project.href ? (
+                    <a href={project.href} rel="noopener" class="link">
+                      {project.name}
+                    </a>
+                  ) : (
+                    project.name
+                  )}
+                </h3>
+                {project.note && <p class="label">{project.note}</p>}
+              </div>
+              <p class="prose-measure mt-2.5 leading-[1.65] text-ink/90">{project.description}</p>
+              <p class="label mt-3 !normal-case !tracking-normal">{project.stack.join(', ')}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </Section>
+
+    <!-- ── Wrestling ─────────────────────────────────────────── -->
+    <Section id="wrestling" index="03" title="Wrestling">
+      <div class="prose-measure space-y-4 leading-[1.65] text-ink/90">
+        {wrestling.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+    </Section>
+
+    <!-- ── Elsewhere ─────────────────────────────────────────── -->
+    <Section id="elsewhere" index="04" title="Elsewhere">
+      <div class="space-y-8">
+        <div>
+          <h3 class="text-lg font-medium">{llc.placeholder ? 'Independent work' : llc.name}</h3>
+          {
+            llc.placeholder ? (
+              <p class="prose-measure mt-2.5 border border-dashed border-accent/50 p-3.5 text-sm leading-relaxed text-muted">
+                <span class="label !text-accent">Draft — needs content</span>
+                <span class="mt-1.5 block">{llc.note}</span>
+              </p>
+            ) : (
+              <p class="prose-measure mt-2.5 leading-[1.65] text-ink/90">{llc.note}</p>
+            )
+          }
+        </div>
+
+        <div>
+          <h3 class="text-lg font-medium">Off the clock</h3>
+          {
+            interests.placeholder ? (
+              <p class="prose-measure mt-2.5 border border-dashed border-accent/50 p-3.5 text-sm leading-relaxed text-muted">
+                <span class="label !text-accent">Draft — needs content</span>
+                <span class="mt-1.5 block">{interests.note}</span>
+              </p>
+            ) : (
+              <p class="prose-measure mt-2.5 leading-[1.65] text-ink/90">{interests.note}</p>
+            )
+          }
+        </div>
+      </div>
+    </Section>
+
+    <!-- ── Contact ───────────────────────────────────────────── -->
+    <Section id="contact" index="05" title="Contact">
+      <p class="prose-measure leading-[1.65] text-ink/90">
+        Email is the best way to reach me. I read everything, and I answer anything that
+        isn't a template.
+      </p>
+
+      <ul class="mt-6 space-y-2.5">
+        <li class="flex items-baseline gap-4">
+          <span class="label w-20 shrink-0">Email</span>
+          <a href={`mailto:${contact.email}`} class="link">{contact.email}</a>
+        </li>
+        <li class="flex items-baseline gap-4">
+          <span class="label w-20 shrink-0">GitHub</span>
+          <a href={contact.github} rel="me noopener" class="link">{contact.githubHandle}</a>
+        </li>
+        <li class="flex items-baseline gap-4">
+          <span class="label w-20 shrink-0">LinkedIn</span>
+          <a href={contact.linkedin} rel="me noopener" class="link">{contact.linkedinLabel}</a>
+        </li>
+      </ul>
+    </Section>
+  </main>
+
+  <footer class="border-t border-rule">
+    <div class="mx-auto flex max-w-3xl flex-wrap justify-between gap-2 px-6 py-6">
+      <p class="label">© {year} {site.name}</p>
+      <p class="label">Astro · GitHub Pages</p>
+    </div>
+  </footer>
+</Base>
