@@ -1,9 +1,11 @@
 /**
  * Single source of truth for site content.
  *
- * Tone: plain and understated. State things once, without adjectives doing
- * persuasion work. No metrics used as a flex — describe the work, not its size.
- *
+ * Voice: conversational, not engineered. Charles reads tight, compressed
+ * self-description as cocky — polished sentences sound like someone selling.
+ * Prefer "I like to X" over "I do X", "preferred stack" over implied authority,
+ * plain conjunctions over em-dash compression, and modest nouns over marketing
+ * ones. Slightly longer and looser is correct here.
  */
 
 export const site = {
@@ -12,7 +14,7 @@ export const site = {
   location: 'Washington, DC',
   url: 'https://chastucker.com',
   description:
-    'Charles Tucker — software engineer in Washington, DC. I build whole products — mobile, web, and the backend under both — at Trenchant Analytics and on Go Travel.',
+    'Charles Tucker — software engineer in Washington, DC. I like turning rough product ideas into software that actually ships, whether that is a mobile app, a web app, or the backend behind them.',
 };
 
 export const contact = {
@@ -23,19 +25,14 @@ export const contact = {
   linkedinLabel: 'Charles Tucker',
 };
 
-/**
- * The position: not a technology specialty, but a mode — taking whole products
- * from nothing to shipped, across mobile, web, and backend. Three independent
- * proof points follow immediately so the claim isn't left hanging.
- */
 export const intro = [
-  `I'm a software engineer in Washington, DC. I build whole products — the mobile app, the
-   web app, and the backend under both — mostly in TypeScript. What I'm usually there for is
-   being the person who gets the thing out the door.`,
-  `Right now that's AcqBot at Trenchant Analytics, an AI platform for federal acquisition,
-   where I own product areas end to end. Before that I led the team that took Zinnia Health's
-   post-discharge patient app to both app stores in about 100 days, under HIPAA. Outside of
-   work I'm the only engineer on Go Travel, a product I'm co-founding.`,
+  `I'm a software engineer in Washington, DC. I like taking a rough idea for a product and
+   turning it into something that actually ships and runs, whether that's a mobile app, a
+   web app, or the backend behind them. Most of my work is in TypeScript.`,
+  `Right now I'm at Trenchant Analytics working on AcqBot, a government acquisition tool.
+   Before that I led a small team on a patient app at Zinnia Health that we got into both
+   app stores in about 100 days. Outside of work I'm co-founding Go Travel, where I'm the
+   only one writing code.`,
 ];
 
 export type Role = {
@@ -58,19 +55,18 @@ export const roles: Role[] = [
     end: 'Present',
     location: 'Remote',
     href: 'https://acqbot.com',
-    context: `AcqBot is an AI platform for federal acquisition.`,
+    context: `AcqBot is a government acquisition tool.`,
     body: [
-      `I work across several applications on the platform, building and architecting features
-       up and down the stack — front end, API, and data model. I own product areas: working
-       out what needs building, setting the technical direction, then either building it or
-       steering the engineers who do.`,
-      `The range runs from a single customer's request to standing up an entire new product
-       area. Some of that work is AI; a lot of it isn't.`,
-      // Deliberate: the specifics stay off a public page. Saying so turns the absence
-      // into evident discretion rather than looking like there's nothing to say — and
-      // gives a reader a reason to make contact.
-      `It's federal work, so I keep the details off a public page. Happy to talk through
-       them directly.`,
+      `I work across several of the applications on the platform, building and architecting
+       features up and down the stack — front end, API, and data model. I own a few product
+       areas, which mostly means figuring out what needs to get built and how, and then
+       either building it myself or working with other engineers who take pieces of it.`,
+      `It ranges pretty widely. Sometimes it's one customer's request, sometimes it's a whole
+       new product area. Some of it is AI work and a lot of it isn't.`,
+      // The specifics stay off a public page. Saying so plainly reads as discretion
+      // rather than as having nothing to show, and gives a reader a reason to email.
+      `It's federal work, so I'd rather keep the details off a public page. Happy to talk
+       through them directly.`,
     ],
     stack: ['TypeScript', 'React', 'tRPC', 'Node.js', 'PostgreSQL', 'LLMs'],
   },
@@ -80,23 +76,23 @@ export const roles: Role[] = [
     start: '2022',
     end: '2024',
     location: 'Remote',
-    context: `An app for patients after discharge — a way to track how they were doing and
-      to support the day-to-day of staying sober.`,
+    context: `An app for patients after they left care, to help them keep track of how they
+      were doing and support the day to day of staying sober.`,
     body: [
-      `I led the build — two engineers reporting to me on a project team of seven — from an
-       initial brief to both app stores in about 100 days. I set the architecture, worked
-       with stakeholders directly to define the release, and made the product and UX calls.`,
-      `It was patient health data, so HIPAA shaped the early decisions: what we could store,
-       where it lived, and who was allowed to see it.`,
-      `Hitting 100 days meant cutting. Journaling, a cravings tracker, and medication
-       tracking all came out of the first release so the core — checking in and tracking how
-       you're doing after discharge — could ship on time.`,
-      // Download and DAU counts were cut deliberately: only a handful of the ~210 patients
-      // discharged each month ever installed it, so raw usage numbers invite an unflattering
-      // denominator. The rating is a quality signal rather than a scale claim.
-      `It shipped to a five-star rating on the App Store.`,
-      `React Native was the right call for launching on both platforms at that pace. If I
-       built it again I'd reach for Drizzle over Prisma.`,
+      `I led the build with two engineers under me on a project team of seven, and we went
+       from an initial brief to both app stores in about 100 days. I set up the architecture,
+       worked with stakeholders to figure out what was going into the release, and made the
+       product and UX calls.`,
+      `It was patient health data, so HIPAA shaped a lot of the early decisions — what we
+       could store, where it lived, and who was allowed to see it.`,
+      `Hitting 100 days meant cutting a lot. Journaling, a cravings tracker, and medication
+       tracking all came out of the first release so we could ship the core thing on time,
+       which was checking in and tracking how you're doing after discharge.`,
+      // Download and DAU counts stay off: only a handful of the ~210 patients discharged
+      // each month installed it, so raw usage invites an unflattering denominator.
+      `It ended up with a five-star rating on the App Store.`,
+      `React Native was the right call for getting onto both platforms that quickly. If I did
+       it again I'd probably use Drizzle instead of Prisma.`,
     ],
     stack: ['TypeScript', 'React Native', 'Node.js', 'Fastify', 'Prisma', 'PostgreSQL'],
   },
@@ -107,9 +103,9 @@ export const roles: Role[] = [
     end: '2022',
     location: 'Cambridge, MA',
     body: [
-      `Worked on the Android SDK in Java and Kotlin — features, bug investigations, and
-       code review. I was also the team's Scrum Master, and shipped a hot fix release
-       end to end under a tight deadline.`,
+      `I worked on the Android SDK in Java and Kotlin, mostly features, bug investigations,
+       and code review. I was also the team's Scrum Master, and I shipped a hot fix release
+       end to end on a tight deadline.`,
     ],
     stack: ['Java', 'Kotlin', 'Android'],
   },
@@ -128,56 +124,50 @@ export const projects: Project[] = [
   {
     name: 'Go Travel',
     description: `A travel app built around a shared map. You pin places you've been or want
-      to go, rate them, and add photos; ratings and photos from everyone aggregate onto the
-      place itself, so a pin becomes a collective record rather than one person's note. You
-      can follow other travelers and filter the map down to people whose taste you trust.
-      I write all of it — Expo app, web app, API, and infrastructure — and it's headed for
-      the App Store.`,
+      to go, rate them, and add photos. Ratings and photos from everyone stack up on the place
+      itself, so a pin ends up being more of a collective record than one person's note. You
+      can also follow other people and filter the map down to just them. I'm writing all of it,
+      the Expo app, the web app, the API, and the infrastructure, and we're aiming to get it on
+      the App Store soon.`,
     stack: ['Expo', 'React Native', 'Next.js', 'tRPC', 'Drizzle', 'Postgres', 'Inngest', 'Fly.io'],
-    // Swap this for an App Store link once it's live — a link is worth far more
-    // than a promise of one.
+    // Swap for an App Store link once it's live — a link is worth more than a promise.
     note: 'Co-founding · sole engineer',
   },
   {
     name: 'wrestling-club',
-    description: `An app for running a wrestling club, web and native from one monorepo.
-      The stack is deliberately newer than what I use at work — it's where I try things
-      before I'd put them in front of a customer.`,
+    description: `An app for running a wrestling club, web and native out of one monorepo. The
+      stack is newer than what I use at work on purpose — it's where I try things out before
+      I'd put them in front of a customer.`,
     stack: ['Next.js', 'React', 'Expo', 'Convex', 'Clerk'],
     href: 'https://github.com/chastucker/wrestling-club',
   },
 ];
 
-/**
- * Wrestling, stated plainly and once. The record is unusual enough that it
- * doesn't need to be set in large type to land.
- */
 export const wrestling = [
   `I wrestled at Cornell and captained the team my senior year. I was a first-team
-   All-American in 2020 and a Hodge Trophy finalist, won the EIWA twice, and made the
-   U23 world team in 2019.`,
+   All-American in 2020 and a Hodge Trophy finalist, won the EIWA twice, and made the U23
+   world team in 2019.`,
   `I've coached ever since — Blair Academy, Doughboy, and Muz Trained — and I sit on the
-   board of the Massachusetts chapter of the National Wrestling Hall of Fame, where I
-   handle public relations.`,
+   board of the Massachusetts chapter of the National Wrestling Hall of Fame, where I handle
+   public relations.`,
 ];
 
 export const interests = {
   placeholder: false,
-  note: `Lately I've been training Brazilian jiu-jitsu, and learning salsa and bachata —
-    all three are the same lesson in different clothes, which is that you get better by
-    being bad at something in public for a while.`,
+  note: `Lately I've been training Brazilian jiu-jitsu and learning salsa and bachata. All of
+    them mostly involve being bad at something in public for a while, which I'm getting used
+    to.`,
 };
 
 /**
- * Stated as a fact, not an offer. The site's primary job is landing a staff role,
- * and "open to new engagements" reads to a hiring manager as divided attention.
- * The pitch belongs on a separate Redhouse Dynamics site.
+ * Stated as a fact, not an offer. The site's primary job is landing a role, and
+ * "open to new engagements" reads to a hiring manager as divided attention.
  */
 export const llc = {
   placeholder: false,
   name: 'Redhouse Dynamics',
-  note: `I run a small consulting practice for occasional independent engineering work
-    outside my full-time role.`,
+  note: `I have a small consulting practice for the occasional independent engineering project
+    outside of my full-time work.`,
 };
 
 export const skills = [
