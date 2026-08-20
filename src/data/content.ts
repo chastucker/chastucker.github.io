@@ -58,25 +58,19 @@ export const roles: Role[] = [
     end: 'Present',
     location: 'Remote',
     href: 'https://acqbot.com',
-    context: `AcqBot is an AI platform for federal acquisition — it takes procurement work
-      that normally runs for months and gets it down to days.`,
+    context: `AcqBot is an AI platform for federal acquisition.`,
     body: [
-      `I own product areas end to end: scoping the work, breaking it into tickets, and setting
-       the technical direction — then either building it myself or handing implementation to
-       other engineers working from that scope. I work across the whole application rather
-       than one lane, and the range runs from a single customer's request to a new product
-       area.`,
-      `The evaluation module is the clearest example. It worked, but it was confusing enough
-       that people struggled with it. I rebuilt it: reworked the flow so it makes sense,
-       added role assignment so the right people get the right steps, and changed how
-       assessments are taken so an evaluator can pull up every source document and video
-       while they work instead of hunting for them. I built the logic that drives an
-       evaluation and the parsing that sets one up from source material, and shook the
-       design out through user testing and customer feedback. Every customer doing
-       evaluations is now on the rebuild, the old version is deprecated, and the questions
-       about how to use it stopped coming. It also brought new business onto the platform.`,
-      `Right now I'm onboarding new customers and building the custom acquisition flows each
-       one needs, including bringing AI into that pipeline.`,
+      `I work across several applications on the platform, building and architecting features
+       up and down the stack — front end, API, and data model. I own product areas: working
+       out what needs building, setting the technical direction, then either building it or
+       steering the engineers who do.`,
+      `The range runs from a single customer's request to standing up an entire new product
+       area. Some of that work is AI; a lot of it isn't.`,
+      // Deliberate: the specifics stay off a public page. Saying so turns the absence
+      // into evident discretion rather than looking like there's nothing to say — and
+      // gives a reader a reason to make contact.
+      `It's federal work, so I keep the details off a public page. Happy to talk through
+       them directly.`,
     ],
     stack: ['TypeScript', 'React', 'tRPC', 'Node.js', 'PostgreSQL', 'LLMs'],
   },
